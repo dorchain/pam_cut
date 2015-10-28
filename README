@@ -4,7 +4,7 @@ pam_cut
 Cuts off the last n (default: 44) characters of a password in the
 pam stack.
 
-Intended use of  authentication with pam and yubikeys, where you
+Intended use is authentication with pam and yubikeys, where you
 enter a static part and a OTP concatenated. The static part is
 ignored by yubikey authenticator, but the static part
 authenticator is confused by the OTP.
