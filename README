@@ -1,0 +1,17 @@
+pam_cut
+=======
+
+Cuts off the last n (default: 44) characters of a password in the
+pam stack.
+
+Intended use of  authentication with pam and yubikeys, where you
+enter a static part and a OTP concatenated. The static part is
+ignored by yubikey authenticator, but the static part
+authenticator is confused by the OTP.
+
+Sample useage (static part via ldap + yubikey OTP via radius)
+
+auth required pam_radius_auth.so debug # OTP with radius
+auth required pam_cut.so # to cut off the otp part
+auth required pam_ldap.so try_first_pass # against AD
+
