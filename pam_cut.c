@@ -50,6 +50,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t	*pamh,
 		return PAM_BUF_ERR;
 	cutpw[len-cut] = '\0';
 	retval = pam_set_item (pamh, PAM_AUTHTOK, cutpw);
+	memset(cutpw, 0, len);
 	free(cutpw);
 	return retval;
 }
